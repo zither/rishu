@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆角矩形（MIUI 风格） -->
+  <rect x="0" y="0" width="48" height="48" rx="10" ry="10" fill="#c41e3a"/>
+  
+  <!-- 日字（白色图案保持不变） -->
+  <path fill="#FFFFFF" d="M24,24m-4,0a4,4 0 1,1 8,0 4,4 0 1,1 -8,0"/>
+  <path fill="#FFFFFF" d="M23,12 L25,12 L25,36 L23,36 Z"/>
+  <path fill="#FFFFFF" d="M16,16 L32,16 L32,18 L16,18 Z"/>
+  <path fill="#FFFFFF" d="M16,30 L32,30 L32,32 L16,32 Z"/>
+</svg>
