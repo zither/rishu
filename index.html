@@ -13,6 +13,7 @@
             --bg-light: #faf8f3;
             --text: #1a1a1a;
             --text-secondary: #666666;
+            --border-light: rgba(196, 30, 58, 0.1);
         }
 
         * {
@@ -135,46 +136,65 @@
             font-weight: 500;
         }
 
+        /* 重构后的下载区域 */
         .download-section {
             background: white;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            padding: 28px 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            margin-bottom: 32px;
+            border: 1px solid var(--border-light);
         }
 
-        .download-label {
-            font-size: 12px;
-            color: var(--text-secondary);
+        .download-header {
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        .download-header h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary);
             letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        .download-header p {
+            font-size: 13px;
+            color: var(--text-secondary);
         }
 
         .download-buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 12px;
+            justify-content: center;
         }
 
         .download-btn {
-            display: flex;
+            flex: 1 1 auto;
+            min-width: 160px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
+            gap: 8px;
+            padding: 14px 18px;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 40px;  /* 更圆润的胶囊形状 */
             font-size: 15px;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             transition: all 0.25s ease;
+            border: 1px solid transparent;
         }
 
         .download-btn:hover {
             background: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(196, 30, 58, 0.2);
         }
 
         .download-btn:active {
@@ -182,15 +202,15 @@
         }
 
         .download-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: white;
         }
 
         .download-btn.secondary {
-            background: var(--bg);
+            background: transparent;
             color: var(--primary);
-            border: 1px solid rgba(196, 30, 58, 0.2);
+            border-color: var(--border-light);
         }
 
         .download-btn.secondary svg {
@@ -200,20 +220,28 @@
         .download-btn.secondary:hover {
             background: var(--bg-light);
             border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.1);
         }
 
-        .footer {
+        .download-note {
+            margin-top: 20px;
             text-align: center;
-            padding: 32px 20px 40px;
             font-size: 12px;
             color: var(--text-secondary);
-            letter-spacing: 1px;
+            border-top: 1px dashed var(--border-light);
+            padding-top: 16px;
+        }
+
+        .download-note a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted currentColor;
         }
 
         .thanks {
             text-align: center;
-            padding: 24px 20px;
-            margin-top: 24px;
+            padding: 20px 0;
+            margin-top: 8px;
         }
 
         .thanks-label {
@@ -243,6 +271,14 @@
             fill: currentColor;
         }
 
+        .footer {
+            text-align: center;
+            padding: 32px 20px 40px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
         @media (min-width: 768px) {
             .hero {
                 padding: 80px 20px 50px;
@@ -270,6 +306,10 @@
             .description p {
                 font-size: 16px;
             }
+
+            .download-section {
+                padding: 32px;
+            }
         }
     </style>
 </head>
@@ -290,20 +330,27 @@
         </div>
 
         <div class="description">
-            <p>以《协纪辨方书》为依据，<em>数据可溯源、界面清爽</em>。</p>
+            <p>以《协纪辨方书》为依据，<em>界面清爽、无广告、无权限</em>。</p>
         </div>
 
+        <!-- 重构后的下载区域 -->
         <div class="download-section">
-            <p class="download-label">立即下载</p>
+            <div class="download-header">
+                <h3>获取应用</h3>
+                <p>版本 0.1 · 完全免费 · Android9+</p>
+            </div>
             <div class="download-buttons">
                 <a href="YOUR_DOWNLOAD_LINK_1" class="download-btn" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M17.523 2H6.477C5.107 2 4 3.107 4 4.477v15.046C4 20.893 5.107 22 6.477 22h11.046C18.893 22 20 20.893 20 19.523V4.477C20 3.107 18.893 2 17.523 2zM12 20c-.828 0-1.5-.672-1.5-1.5S11.172 17 12 17s1.5.672 1.5 1.5S12.828 20 12 20zm5-4H7V5h10v11z"/></svg>
-                    <span>Android 下载</span>
+                    <span>Android 版</span>
                 </a>
-                <a href="YOUR_DOWNLOAD_LINK_2" class="download-btn secondary" target="_blank">
+                <a href="https://1drv.ms/f/c/944931106882a5a1/IgDnNAOA2dmpSrnZhAYIo52BARsbeSzcS24dW7cD322Ydg4?e=CPyXqe" class="download-btn secondary" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                     <span>备用下载</span>
                 </a>
+            </div>
+            <div class="download-note">
+                ️直接下载 APK · 无需安装商店
             </div>
         </div>
 
@@ -311,13 +358,14 @@
             <p class="thanks-label">致谢</p>
             <a href="https://github.com/OPN48/cnlunar" class="thanks-link" target="_blank">
                 <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                <span>cnlunar</span>
-            </a>
+                    <span>cnlunar · OPN48</span>
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer">
-        © 2024 协纪·日书
+        © 2026 协纪·日书
     </footer>
 </body>
 </html>
