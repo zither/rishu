@@ -20,7 +20,6 @@
 ## 下载
 
 - **Android 版**：直接下载 APK 安装（Android 9+）
-- 版本：0.1.2
 
 [下载 Android APK](https://github.com/zither/rishu/releases/latest)
 
